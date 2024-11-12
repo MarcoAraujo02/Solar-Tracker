@@ -6,7 +6,7 @@ namespace Solar_Tracker.Repository.Interface
     {
 
         Task<IEnumerable<Usuario>> GetUsuarios();
-        Task<Usuario> AddUsuario();
+        Task<Usuario> AddUsuario(Usuario usuario);
         Task<Usuario> UpdateUsuario(Usuario usuario);
         Task<Usuario> DeleteUsuario(int id);
     }

@@ -41,7 +41,6 @@ namespace Solar_Tracker.Controllers
 
         }
 
-
         /// <summary>
         /// Obter Estabelecimento pelo id selecionado
         /// </summary>
@@ -71,12 +70,11 @@ namespace Solar_Tracker.Controllers
 
         }
 
-
         /// <summary>
         /// Endpoint para cadastrar novos Estabelecimentos
         /// </summary>
         /// <returns>Retorna o  Estabelecimento</returns>
-        /// </remarks>
+        ///
         /// <response code="201"> Salva o Estabelecimento</response>
         /// <response code="500"> Erro ao salva o Estabelecimento</response>
         /// <response code="400"> Verifique as informações</response>

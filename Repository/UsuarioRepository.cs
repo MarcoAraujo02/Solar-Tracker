@@ -1,4 +1,5 @@
-﻿using Solar_Tracker.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Solar_Tracker.Data;
 using Solar_Tracker.Models;
 using Solar_Tracker.Repository.Interface;
 
@@ -13,9 +14,11 @@ namespace Solar_Tracker.Repository
             this.dbContext = dbContext;
         }
 
-        public Task<Usuario> AddUsuario()
+        public async Task<Usuario> AddUsuario(Usuario usuario)
         {
-            throw new NotImplementedException();
+            var result = await dbContext.Usuarios.AddAsync(usuario);
+            await dbContext.SaveChangesAsync();
+            return result.Entity;
         }
 
         public Task<Usuario> DeleteUsuario(int id)
@@ -23,9 +26,9 @@ namespace Solar_Tracker.Repository
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Usuario>> GetUsuarios()
+        public async Task<IEnumerable<Usuario>> GetUsuarios()
         {
-            throw new NotImplementedException();
+            return await dbContext.Usuarios.ToListAsync();
         }
 
         public Task<Usuario> UpdateUsuario(Usuario usuario)
