@@ -1,4 +1,5 @@
-﻿using Solar_Tracker.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Solar_Tracker.Data;
 using Solar_Tracker.Models;
 using Solar_Tracker.Repository.Interface;
 
@@ -14,14 +15,16 @@ namespace Solar_Tracker.Repository
             this.dbContext = dbContext;
         }
 
-        public Task<PlacaSolar> AddPlaca(PlacaSolar placa)
+        public async Task<PlacaSolar> AddPlaca(PlacaSolar placa)
         {
-            throw new NotImplementedException();
+            var result = await dbContext.PlacaSolares.AddAsync(placa);
+            await dbContext.SaveChangesAsync();
+            return result.Entity;
         }
 
-        public Task<IEnumerable<PlacaSolar>> GetPlacas()
+        public async Task<IEnumerable<PlacaSolar>> GetPlacas()
         {
-            throw new NotImplementedException();
+            return await dbContext.PlacaSolares.ToListAsync();
         }
     }
 }

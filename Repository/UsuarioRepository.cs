@@ -21,9 +21,16 @@ namespace Solar_Tracker.Repository
             return result.Entity;
         }
 
-        public Task<Usuario> DeleteUsuario(int id)
+        public async Task<Usuario> DeleteUsuario(int id)
         {
-            throw new NotImplementedException();
+            var result = await dbContext.Usuarios.FirstOrDefaultAsync(x => x.IdUsuario == id);
+            if (result != null)
+            {
+                dbContext.Usuarios.Remove(result);
+                await dbContext.SaveChangesAsync();
+            }
+
+            return result;
         }
 
         public async Task<IEnumerable<Usuario>> GetUsuarios()
@@ -31,9 +38,28 @@ namespace Solar_Tracker.Repository
             return await dbContext.Usuarios.ToListAsync();
         }
 
-        public Task<Usuario> UpdateUsuario(Usuario usuario)
+        public async Task<Usuario> UpdateUsuario(Usuario usuario)
         {
-            throw new NotImplementedException();
+            var result = await dbContext.Usuarios.FirstOrDefaultAsync(x => x.IdUsuario == usuario.IdUsuario);
+
+            if (result != null)
+            {
+                result.IdUsuario = usuario.IdUsuario;
+                result.Nome = usuario.Nome;
+                result.Senha = usuario.Senha;
+                result.Email = usuario.Email;
+
+                await dbContext.SaveChangesAsync();
+
+                return result;
+            }
+
+            return null;
+        }
+
+        public async Task<Usuario> GetUsuario(int userid)
+        {
+            return await dbContext.Usuarios.FirstOrDefaultAsync(x => x.IdUsuario == userid);
         }
     }
 }

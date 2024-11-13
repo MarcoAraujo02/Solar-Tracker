@@ -25,7 +25,6 @@ namespace Solar_Tracker.Controllers
         /// <response code="500"> Erro ao obter estabelecimento</response>
         /// <response code="404"> estabelecimento nao encontrado</response>
         /// 
-
         [HttpGet]
         public async Task<ActionResult<Estabelecimento>> GetEstabelecimentos()
         {
@@ -41,6 +40,7 @@ namespace Solar_Tracker.Controllers
 
         }
 
+
         /// <summary>
         /// Obter Estabelecimento pelo id selecionado
         /// </summary>
@@ -49,7 +49,6 @@ namespace Solar_Tracker.Controllers
         /// <response code="500"> Erro ao obter Estabelecimento</response>
         /// <response code="404"> Estabelecimento nao encontrado</response>
         /// 
-
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Estabelecimento>> GetEstabelecimento(int id)
         {
@@ -69,6 +68,7 @@ namespace Solar_Tracker.Controllers
 
 
         }
+
 
         /// <summary>
         /// Endpoint para cadastrar novos Estabelecimentos
@@ -99,25 +99,22 @@ namespace Solar_Tracker.Controllers
         }
 
 
-
         /// <summary>
-        /// Obter todos os Estabelecimentos pelo id selecionado
+        /// Deletar Estabelecimento
         /// </summary>
         /// <returns></returns>
-        /// <response code="200"> Retorna a lista de estabelecimentos</response>
-        /// <response code="500"> Erro ao obter estabelecimento</response>
-        /// <response code="404"> Estabelecimento nao encontrado</response>
+        /// <response code="200"> Estabelecimento deletado</response>
+        /// <response code="500"> Erro ao deletar estabelecimento</response>
+        /// <response code="404"> Id do estabelecimento nao encontrado </response>
         /// 
-
-
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> DeleteEstabelecimento(int id)
         {
             try
             {
-                var funToDelete = await estabelecimentoRepository.GetEstabelecimento(id);
+                var EstabToDelete = await estabelecimentoRepository.GetEstabelecimento(id);
 
-                if (funToDelete == null)
+                if (EstabToDelete == null)
                     return NotFound($"Funcionario com id {id} não encontrado");
 
                 await estabelecimentoRepository.DeleteEstabelecimento(id);
@@ -133,5 +130,27 @@ namespace Solar_Tracker.Controllers
             }
         }
 
+
+        /// <summary>
+        /// Atualizar dados estabelecimento
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        [HttpPut("{id:int}")]
+        public async Task<ActionResult<Estabelecimento>> UpdateEstabelecimento([FromBody] Estabelecimento estabelecimento)
+        {
+            try
+            {
+                var estabUpdate = await estabelecimentoRepository.GetEstabelecimento(estabelecimento.IdEstabelecimento);
+
+                if (estabUpdate == null) return NotFound($"Estabelecimento com id {estabelecimento.IdEstabelecimento} não encontrado");
+
+                return await estabelecimentoRepository.UpdateEstabelecimento(estabelecimento);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao atualizar estabelecimento");
+            }
+        }
     }
 }

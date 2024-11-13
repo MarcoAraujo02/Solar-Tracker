@@ -15,6 +15,8 @@ builder.Services.AddDbContext<dbContext>(options =>
 
 builder.Services.AddScoped<IEstabelecimentoRepository, EstabelecimentoRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IPlacaSolarRepository, PlacaSolarRepository>();
+builder.Services.AddScoped<IRegistroEnergiaRepository, RegistroEnergiaRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
