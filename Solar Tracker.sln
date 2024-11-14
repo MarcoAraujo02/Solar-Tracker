@@ -5,7 +5,7 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solar Tracker", "Solar Tracker.csproj", "{B7656F5B-39EE-47BE-9C08-ECD308CCC47C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarTrackTests", "..\SolarTrackTests\SolarTrackTests.csproj", "{92598202-6715-43A0-86C9-57BAC2F6FE11}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solar Tracker.Tests", "..\Solar Tracker.Tests\Solar Tracker.Tests.csproj", "{B074FA21-F481-4F34-A3CA-FE07FB1EFC5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{B7656F5B-39EE-47BE-9C08-ECD308CCC47C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7656F5B-39EE-47BE-9C08-ECD308CCC47C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7656F5B-39EE-47BE-9C08-ECD308CCC47C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{92598202-6715-43A0-86C9-57BAC2F6FE11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{92598202-6715-43A0-86C9-57BAC2F6FE11}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{92598202-6715-43A0-86C9-57BAC2F6FE11}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{92598202-6715-43A0-86C9-57BAC2F6FE11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B074FA21-F481-4F34-A3CA-FE07FB1EFC5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B074FA21-F481-4F34-A3CA-FE07FB1EFC5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B074FA21-F481-4F34-A3CA-FE07FB1EFC5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B074FA21-F481-4F34-A3CA-FE07FB1EFC5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
