@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Solar_Tracker.Models;
 using Solar_Tracker.Repository;
-using Solar_Tracker.Repository.Interface;
+using Solar_Tracker.SolarTrackerAPI.Models;
+using Solar_Tracker.SolarTrackerAPI.Repository.Interface;
 
-namespace Solar_Tracker.Controllers
+namespace Solar_Tracker.SolarTrackerAPI.Controllers
 {
     [Route("[controller]")]
     [ApiController]

@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Solar_Tracker.Data;
-using Solar_Tracker.Models;
-using Solar_Tracker.Repository.Interface;
+using Solar_Tracker.SolarTrackerAPI.Data;
+using Solar_Tracker.SolarTrackerAPI.Models;
+using Solar_Tracker.SolarTrackerAPI.Repository.Interface;
 
-namespace Solar_Tracker.Repository
+namespace Solar_Tracker.SolarTrackerAPI.Repository
 {
     public class PlacaSolarRepository : IPlacaSolarRepository
     {

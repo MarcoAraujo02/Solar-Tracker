@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Solar_Tracker.Data;
-using Solar_Tracker.Models;
-using Solar_Tracker.Repository.Interface;
+using Solar_Tracker.SolarTrackerAPI.Data;
+using Solar_Tracker.SolarTrackerAPI.Models;
+using Solar_Tracker.SolarTrackerAPI.Repository.Interface;
 using System;
 
-namespace Solar_Tracker.Repository
+namespace Solar_Tracker.SolarTrackerAPI.Repository
 {
     public class EstabelecimentoRepository : IEstabelecimentoRepository
     {
@@ -47,10 +47,10 @@ namespace Solar_Tracker.Repository
 
             if (result != null)
             {
-                result.IdEstabelecimento = estabelecimento.IdEstabelecimento; 
+                result.IdEstabelecimento = estabelecimento.IdEstabelecimento;
                 result.Nome = estabelecimento.Nome;
                 result.Localizacao = estabelecimento.Localizacao;
-            
+
                 await dbContext.SaveChangesAsync();
 
                 return result;

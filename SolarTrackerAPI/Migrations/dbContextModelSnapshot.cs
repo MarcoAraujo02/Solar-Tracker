@@ -2,21 +2,18 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Oracle.EntityFrameworkCore.Metadata;
-using Solar_Tracker.Data;
+using Solar_Tracker.SolarTrackerAPI.Data;
 
 #nullable disable
 
 namespace Solar_Tracker.Migrations
 {
     [DbContext(typeof(dbContext))]
-    [Migration("20241112182525_tables")]
-    partial class tables
+    partial class dbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

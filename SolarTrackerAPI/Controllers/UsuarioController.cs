@@ -1,11 +1,11 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
 using Solar_Tracker.Data;
-using Solar_Tracker.Models;
 using Solar_Tracker.Repository;
-using Solar_Tracker.Repository.Interface;
+using Solar_Tracker.SolarTrackerAPI.Models;
+using Solar_Tracker.SolarTrackerAPI.Repository.Interface;
 
-namespace Solar_Tracker.Controllers
+namespace Solar_Tracker.SolarTrackerAPI.Controllers
 {
     [Route("[controller]")]
     [ApiController]
@@ -126,7 +126,7 @@ namespace Solar_Tracker.Controllers
             }
             catch (Exception ex)
             {
-             
+
 
                 return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao deletar Usuario");
             }
@@ -141,7 +141,7 @@ namespace Solar_Tracker.Controllers
         /// <response code="500"> Erro ao obter usuario</response>
         /// <response code="404"> Usuario nao encontrado</response>
         /// 
-        [HttpPut    ]
+        [HttpPut]
         public async Task<ActionResult<Usuario>> UpdateUsuario([FromBody] Usuario usuario)
         {
             try

@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Solar_Tracker.Data;
-using Solar_Tracker.Models;
-using Solar_Tracker.Repository.Interface;
+using Solar_Tracker.SolarTrackerAPI.Data;
+using Solar_Tracker.SolarTrackerAPI.Models;
+using Solar_Tracker.SolarTrackerAPI.Repository.Interface;
 using System.Numerics;
 
-namespace Solar_Tracker.Repository
+namespace Solar_Tracker.SolarTrackerAPI.Repository
 {
     public class RegistroEnergiaRepository : IRegistroEnergiaRepository
     {
@@ -32,11 +32,11 @@ namespace Solar_Tracker.Repository
             return await dbContext.RegistroEnergias.ToListAsync();
         }
 
-      
+
 
         public async Task<RegistroEnergia> UpdateRegistro(RegistroEnergia registro)
         {
-            var result = await dbContext.RegistroEnergias.FirstOrDefaultAsync(x => x.IdPlacaSolar== registro.IdPlacaSolar);
+            var result = await dbContext.RegistroEnergias.FirstOrDefaultAsync(x => x.IdPlacaSolar == registro.IdPlacaSolar);
 
             if (result != null)
             {
@@ -51,6 +51,6 @@ namespace Solar_Tracker.Repository
             return null;
         }
 
-        
+
     }
 }

@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
 #nullable enable
-namespace Solar_Tracker.Models
+namespace Solar_Tracker.SolarTrackerAPI.Models
 {
     public class PlacaSolar
     {
@@ -10,14 +11,14 @@ namespace Solar_Tracker.Models
 
 
         [Column("ds_placa_solar")]
-        public  string Descricao { get; set; } = string.Empty;
+        public string Descricao { get; set; } = string.Empty;
 
 
         [Column("st_placa_solar")]
-        public  Status Status { get; set; } 
+        public Status Status { get; set; }
 
 
         [Column("Id_estabelecimento")]
-        public int IdEstabelecimento { get; set; } 
+        public int IdEstabelecimento { get; set; }
     }
 }

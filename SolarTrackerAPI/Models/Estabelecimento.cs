@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Solar_Tracker.Models
+namespace Solar_Tracker.SolarTrackerAPI.Models
 {
     public class Estabelecimento
     {
@@ -10,7 +10,7 @@ namespace Solar_Tracker.Models
 
 
         [Column("nm_estabelecimento")]
-        public  string Nome { get; set; } = string.Empty;
+        public string Nome { get; set; } = string.Empty;
 
 
         [Column("ds_localizacao")]

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Solar_Tracker.Models
+namespace Solar_Tracker.SolarTrackerAPI.Models
 {
     public class RegistroEnergia
     {
@@ -22,6 +22,6 @@ namespace Solar_Tracker.Models
 
 
         [Column("Id_PlacaSolar")]
-        public int IdPlacaSolar{ get; set; }
+        public int IdPlacaSolar { get; set; }
     }
 }

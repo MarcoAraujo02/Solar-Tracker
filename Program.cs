@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using Solar_Tracker.Data;
-using Solar_Tracker.Repository;
-using Solar_Tracker.Repository.Interface;
+using Solar_Tracker.SolarTrackerAPI.Data;
+using Solar_Tracker.SolarTrackerAPI.Repository;
+using Solar_Tracker.SolarTrackerAPI.Repository.Interface;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);

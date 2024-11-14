@@ -1,6 +1,6 @@
-﻿using Solar_Tracker.Models;
+﻿using Solar_Tracker.SolarTrackerAPI.Models;
 
-namespace Solar_Tracker.Repository.Interface
+namespace Solar_Tracker.SolarTrackerAPI.Repository.Interface
 {
     public interface IUsuarioRepository
     {

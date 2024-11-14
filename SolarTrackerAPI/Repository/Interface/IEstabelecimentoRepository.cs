@@ -1,6 +1,6 @@
-﻿using Solar_Tracker.Models;
+﻿using Solar_Tracker.SolarTrackerAPI.Models;
 
-namespace Solar_Tracker.Repository.Interface
+namespace Solar_Tracker.SolarTrackerAPI.Repository.Interface
 {
     public interface IEstabelecimentoRepository
     {
@@ -10,6 +10,6 @@ namespace Solar_Tracker.Repository.Interface
 
         Task<Estabelecimento> AddEstabelecimento(Estabelecimento estabelecimento);
         Task<Estabelecimento> UpdateEstabelecimento(Estabelecimento estabelecimento);
-        Task <Estabelecimento>DeleteEstabelecimento(int id);
+        Task<Estabelecimento> DeleteEstabelecimento(int id);
     }
 }

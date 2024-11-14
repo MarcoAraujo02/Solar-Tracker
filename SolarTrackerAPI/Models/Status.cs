@@ -1,4 +1,4 @@
-﻿namespace Solar_Tracker.Models
+﻿namespace Solar_Tracker.SolarTrackerAPI.Models
 {
     public enum Status
     {
