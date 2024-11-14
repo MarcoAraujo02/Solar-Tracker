@@ -11,11 +11,12 @@ namespace Solar_Tracker.Controllers
     {
 
         private readonly IPlacaSolarRepository placaRepository;
+        private readonly IEstabelecimentoRepository estabelecimentoRepository;
 
-        public PlacaSolarController(IPlacaSolarRepository placa)
+        public PlacaSolarController(IPlacaSolarRepository placaRepo, IEstabelecimentoRepository estabelecimentoRepo)
         {
-            placaRepository = placa;
-
+            placaRepository = placaRepo;
+            estabelecimentoRepository = estabelecimentoRepo;
         }
 
 
@@ -43,30 +44,45 @@ namespace Solar_Tracker.Controllers
         }
 
 
+
         /// <summary>
-        /// Endpoint para cadastrar novas Placas
+        /// Criar uma nova Placa
         /// </summary>
-        /// <returns>Retorna a placa solar cadastrada</returns>
-        ///
-        /// <response code="201"> Salva a placa solar</response>
-        /// <response code="500"> Erro ao salvar a Placa</response>
-        /// <response code="400"> Verifique as informações</response>
-        /// 
+        /// <returns>Placa criada</returns>
+        /// <remarks> 
+        ///     Sample request:
+        ///         POST /api/Registro
+        ///         {
+        ///             "Descrição": "Descrição da placa",
+        ///             "Status": "Status sendo Desativado = 0, Ativado = 1,",
+        ///             "EstabelecimentoId": "Id do estabelecimento que a placa esta relacionada",  
+        ///         }
+        /// </remarks>
+        /// <response code="201"> Salva a triagem</response>
+        /// <response code="500"> Erro ao salvar a triagem</response>
+        /// <response code="400"> Dados inválidos</response>
         [HttpPost]
         public async Task<ActionResult<PlacaSolar>> AddPlaca([FromBody] PlacaSolar placa)
         {
             try
             {
-                if (placa == null) return BadRequest();
+                if (placa == null)
+                    return BadRequest("Dados da placa são inválidos.");
 
-                var createplaca = await placaRepository.AddPlaca(placa);
+                // Verifica se o estabelecimento existe
+                var estabelecimentoExistente = await estabelecimentoRepository.GetEstabelecimento(placa.IdEstabelecimento);
+                if (estabelecimentoExistente == null)
+                    return NotFound("Estabelecimento não encontrado.");
 
+                // Adiciona a placa após a validação
+                var createPlaca = await placaRepository.AddPlaca(placa);
 
                 return CreatedAtAction(nameof(GetPlacas),
-                    new { id = createplaca.idPlacaSolar}, createplaca);
+                    new { id = createPlaca.idPlacaSolar }, createPlaca);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                // Logar a exceção (ex) se necessário
                 return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao criar Placa");
             }
         }

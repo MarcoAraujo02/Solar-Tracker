@@ -72,19 +72,10 @@ namespace Solar_Tracker.Controllers
         /// <summary>
         /// Endpoint para cadastrar novos Registros
         /// </summary>
-        /// <returns>Retorna o Registro criado</returns>
-        /// <remarks> 
-        ///     Sample request:
-        ///         POST /api/Registro
-        ///         {
-        ///             "Descrição": "Descrição da placa",
-        ///             "Status": "Status sendo Desativado = 0, Ativado = 1,",
-        ///             "EstabelecimentoId": "Id do estabelecimento que a placa esta relacionada",  
-        ///         }
-        /// </remarks>
-        /// <response code="201"> Salva a triagem</response>
-        /// <response code="500"> Erro ao salvar a triagem</response>
-        /// <response code="400"> Dados inválidos</response>
+        /// <returns>Retorna o registro solar cadastrado</returns>
+        /// <response code="201"> Salva o Registro</response>
+        /// <response code="500"> Erro ao salvar o registro</response>
+        /// <response code="400"> Verifique as informações</response>
         [HttpPost]
         public async Task<ActionResult<RegistroEnergia>> AddRegistro([FromBody] RegistroEnergia registro)
         {
