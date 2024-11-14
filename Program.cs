@@ -7,6 +7,7 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 builder.Services.AddDbContext<dbContext>(options =>
     options.UseOracle(builder.Configuration.GetConnectionString("OracleConnection"))
 );
