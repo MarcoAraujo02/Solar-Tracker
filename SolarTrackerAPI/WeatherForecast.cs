@@ -1,4 +1,4 @@
-namespace Solar_Tracker
+namespace Solar_Tracker.SolarTrackerAPI
 {
     public class WeatherForecast
     {
